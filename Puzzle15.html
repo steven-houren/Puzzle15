@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Puzzle15</title> 
+
+<style>
+body{
+    background-color: #032130; 
+    margin: 0;
+
+} 
+    
+#GameBoard {
+    margin: 0 auto;
+    width: 50%;
+    padding-left: 25%;
+    transform: translate(-50px, 0%);
+}
+    
+#GameBoardBox{
+    max-width: 425px;
+    max-height: 400px;
+    background-color: #FFFF77;
+}
+    
+h1{
+    padding-left: 110px;
+    position: relative;    
+    font-family: sans-serif;
+    font-size: 48px;
+    color: #ffff77;
+    text-decoration: overline underline;
+}
+
+#tKeeper{ 
+    padding-left: 115px;
+    font-family: sans-serif;
+    font-size: 24px;
+    color: #FFFF77; 
+        
+}
+
+#timeText{    
+    font-family: sans-serif;
+    font-size: 24px;
+    color: #FFFF77; 
+        
+}
+    
+#timeDisplay{
+    padding-left: 90px;
+}
+        
+#btns{
+    padding-left: 50px;
+    position: relative;
+}
+    
+#button{
+    min-height: 40px;
+    min-width: 150px;
+    background-color: #FFFF77;
+    font-size: 20px;
+    color: #041E42;
+    border: 1px solid #032130;
+    margin: 10px;
+    font-weight: bold;   
+}
+    
+#WindowShade{
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #000;
+	width: 100%;
+	z-index: 10;
+}
+#AlertBox{
+	display: none;
+	position: fixed;
+	background: #FFFF77;
+	border-radius:2px;
+    height: 250px;
+	width:600px;
+	z-index: 10;
+}
+#AlertBox > div{ 
+    background:#032130; 
+    border-color: #ffff77; 
+    margin:8px; 
+}
+#AlertBox > div > #AlertBoxhead{ 
+    background: #032130; 
+    font-size:25px; 
+    padding:10px; 
+    color:#ffff77; 
+    font-family: sans-serif;
+}
+#AlertBox > div > #AlertBoxbody{ background: #032130; 
+    padding:20px; 
+    color:#FFFF77; 
+    height: 105px; 
+    font-family: sans-serif;
+}
+#AlertBox > div > #AlertBoxfoot{ background: #032130; 
+    padding:10px; 
+    text-align:right; 
+} 
+    
+
+</style>
+</head>
+    
+<body>
+ 
+
+    
+<div id="WindowShade"></div>
+<div id="AlertBox">
+  <div>
+    <div id="AlertBoxhead"></div>
+    <div id="AlertBoxbody"></div>
+    <div id="AlertBoxfoot"></div>
+  </div>
+</div>
+    
+    
+<div id="GameBoard" padding="0";>
+<h1>Puzzle 15</h1>
+
+    
+<div id="timeDisplay">
+<p id="timeText">Time Elapsed (Seconds): </p>
+<p id="tKeeper">00</p>
+</div>
+
+       
+<table id="GameBoardBox" margin="0"; padding="0";>
+    <tr>
+    <td><img src="Pictures/11.jpg" alt="1" id="1" value="11" onclick="swap(1,1,1);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/6.jpg" alt="2" id="2" value="6" onclick="swap(1,2,2);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/blank.jpg" alt="3" id="3" onclick="swap(1,3,3);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/8.jpg" alt="4" id="4" onclick="swap(1,4,4);" padding="0"; margin="0"; height="105"; width="105";></td>
+    </tr>
+    <tr>
+    <td><img src="Pictures/15.jpg" alt="5" id="5" onclick="swap(2,1,5);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/4.jpg" alt="6" id="6" onclick="swap(2,2,6);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/12.jpg" alt="7" id="7" onclick="swap(2,3,7);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/7.jpg" alt="8" id="8" onclick="swap(2,4,8);" padding="0"; margin="0"; height="105"; width="105";></td>
+    </tr>
+    <tr>
+    <td><img src="Pictures/5.jpg" alt="9" id="9" onclick="swap(3,1,9);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/9.jpg" alt="10" id="10" onclick="swap(3,2,10);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/3.jpg" alt="11" id="11" onclick="swap(3,3,11);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/2.jpg" alt="12" id="12" onclick="swap(3,4,12);" padding="0"; margin="0"; height="105"; width="105";></td>
+    </tr>
+    <tr>
+    <td><img src="Pictures/1.jpg" alt="13" id="13" onclick="swap(4,1,13);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/14.jpg" alt="14" id="14" onclick="swap(4,2,14);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/10.jpg" alt="15" id="15" onclick="swap(4,3,15);" padding="0"; margin="0"; height="105"; width="105";></td>
+    <td><img src="Pictures/13.jpg" alt=" " id="16" onclick="swap(4,4,16);" padding="0"; margin="0"; height="105"; width="105";></td>
+    </tr>
+</table>
+
+    
+<div id="btns">
+
+<button id="button" onclick="simpleSolve();">Simple Solve</button>  
+<button id="button" onclick="mixItUp();">New Game</button> 
+    
+</div>  
+    
+</div> 
+    
+<script type="text/javascript">
+
+    var blank_x = 1;
+    var blank_y = 3;
+    var blank_z = 3;
+    var count = 0;
+    
+    var winner = new Array(16);
+    
+    var tracker = new Array(16);
+    
+    var i = 0;
+    
+    var string = document.getElementById('3').src;
+    var result = string.indexOf("blank");
+    var substring = string.substring(0, result-1);
+    
+    for(i = 1; i<=15; i++){
+        winner[i] = substring + "/" + i + ".jpg";
+    }
+
+    winner[16] = substring + "/blank.jpg";
+      
+    function swap(x,y,z){ 
+        
+        var blankImage = document.getElementById(blank_z);
+        var image = document.getElementById(z);
+        var ImageSwap = document.getElementById(z).src;
+        
+        if(count == 0){
+            begin(); 
+        }
+        
+        
+        if(x-blank_x==0 && y-blank_y==0)
+        {
+            return;
+        }
+        else if(x-blank_x >= 2 || y-blank_y >= 2)
+        {
+             return;   
+        }
+        else if(x-blank_x <= -2 || y-blank_y <= -2)
+        {
+             return;   
+        }
+        else if(x-blank_x==0 || y-blank_y==0)
+        {
+            image.src=blankImage.src;
+            blankImage.src=ImageSwap;
+            blank_x = x;
+            blank_y = y;  
+            blank_z = z;
+            
+            count++;
+        }
+        
+        winnerWinnerChickenDinner();
+        
+    }
+
+    
+    
+
+    function winnerWinnerChickenDinner()
+    {
+        
+        for(c=1;c<=16;c++){
+            
+            tracker[c] = document.getElementById(c).src;
+  
+        }
+        
+        if(winner[1] == tracker[1] && winner[2] == tracker[2] && winner[3] == tracker[3] && winner[4] == tracker[4] && winner[5] == tracker[5] && winner[6] == tracker[6] && winner[7] == tracker[7] && winner[8] == tracker[8] && winner[9] == tracker[9] && winner[10] == tracker[10] && winner[11] == tracker[11] && winner[12] == tracker[12] && winner[13] == tracker[13] && winner[14] == tracker[14] && winner[15] == tracker[15] && winner[16] == tracker[16]){   
+          
+        clearInterval(timeCount);    
+            
+        CustomAlert.render('This time it took you this many moves to win: ' + count + '.  If you would like to play again please click \"New Game\" to mix up the board and start a new game.  If you would like to quit please click the \"Quit\" button.');
+        
+        }   
+    }
+    
+function mixItUp(){
+    var mix_array = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'];
+    for(i=1;i<=16;i++){
+        var ri = Math.floor(Math.random() * mix_array.length);
+        document.getElementById(i).src = "Pictures/" + mix_array[ri] + ".jpg";
+        if(mix_array[ri] == 16){
+            if(i == 1){blank_x = 1; blank_y = 1; blank_z = 1};
+            if(i == 2){blank_x = 1; blank_y = 2; blank_z = 2};
+            if(i == 3){blank_x = 1; blank_y = 3; blank_z = 3};
+            if(i == 4){blank_x = 1; blank_y = 4; blank_z = 4};
+            if(i == 5){blank_x = 2; blank_y = 1; blank_z = 5};
+            if(i == 6){blank_x = 2; blank_y = 2; blank_z = 6};
+            if(i == 7){blank_x = 2; blank_y = 3; blank_z = 7};
+            if(i == 8){blank_x = 2; blank_y = 4; blank_z = 8};
+            if(i == 9){blank_x = 3; blank_y = 1; blank_z = 9};
+            if(i == 10){blank_x = 3; blank_y = 2; blank_z = 10};
+            if(i == 11){blank_x = 3; blank_y = 3; blank_z = 11};
+            if(i == 12){blank_x = 3; blank_y = 4; blank_z = 12};
+            if(i == 13){blank_x = 4; blank_y = 1; blank_z = 13};
+            if(i == 14){blank_x = 4; blank_y = 2; blank_z = 14};
+            if(i == 15){blank_x = 4; blank_y = 3; blank_z = 15};
+            if(i == 16){blank_x = 4; blank_y = 4; blank_z = 16};
+            document.getElementById(i).src = "Pictures/blank.jpg"
+        } 
+        
+        mix_array.splice(ri, 1);
+    }
+clearInterval(timeCount);
+sec = 0;
+count = 0;
+winnerWinnerChickenDinner();
+}
+    
+function simpleSolve(){
+        blank_x=3;
+        blank_y=4;
+        blank_z=12;
+        
+        var image_1 = document.getElementById('1');
+        image_1.src = "Pictures/1.jpg"
+        
+        var image_2 = document.getElementById('2');
+        image_2.src = "Pictures/2.jpg"
+        
+        var image_3 = document.getElementById('3');
+        image_3.src = "Pictures/3.jpg"
+        
+        var image_4 = document.getElementById('4');
+        image_4.src = "Pictures/4.jpg"
+        
+        var image_5 = document.getElementById('5');
+        image_5.src = "Pictures/5.jpg"
+        
+        var image_6 = document.getElementById('6');
+        image_6.src = "Pictures/6.jpg"
+        
+        var image_7 = document.getElementById('7');
+        image_7.src = "Pictures/7.jpg"
+        
+        var image_8 = document.getElementById('8');
+        image_8.src = "Pictures/8.jpg"
+        
+        var image_9 = document.getElementById('9');
+        image_9.src = "Pictures/9.jpg"
+        
+        var image_10 = document.getElementById('10');
+        image_10.src = "Pictures/10.jpg"
+        
+        var image_11 = document.getElementById('11');
+        image_11.src = "Pictures/11.jpg"
+        
+        var image_12 = document.getElementById('12');
+        image_12.src = "Pictures/blank.jpg"
+        
+        var image_13 = document.getElementById('13');
+        image_13.src = "Pictures/13.jpg"
+        
+        var image_14 = document.getElementById('14');
+        image_14.src = "Pictures/14.jpg"
+        
+        var image_15 = document.getElementById('15');
+        image_15.src = "Pictures/15.jpg"
+        
+        var image_16 = document.getElementById('16');
+        image_16.src = "Pictures/12.jpg"
+               
+    }
+    
+    function CustomAlert(){
+	this.render = function(dialog){
+		var winW = window.innerWidth;
+	    var winH = window.innerHeight;
+		var WindowShade = document.getElementById('WindowShade');
+	    var AlertBox = document.getElementById('AlertBox');
+		WindowShade.style.display = "block";
+	    WindowShade.style.height = winH+"px";
+		AlertBox.style.left = (winW/2) - (550 * .5)+"px";
+	    AlertBox.style.top = "100px";
+	    AlertBox.style.display = "block";
+		
+		document.getElementById('AlertBoxhead').innerHTML = "Congratulations! You won a game of Puzzle 15.";
+	    document.getElementById('AlertBoxbody').innerHTML = dialog;
+		document.getElementById('AlertBoxfoot').innerHTML = '<button onclick="CustomAlert.yes()">New Game</button> <button id="btn" onclick="CustomAlert.no()">Quit</button>';
+	}
+	this.no = function(){
+		document.getElementById('AlertBox').style.display = "none";
+		document.getElementById('WindowShade').style.display = "none";
+	}
+	this.yes = function(){
+		var mix_array = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'];
+    for(i=1;i<=16;i++){
+        var ri = Math.floor(Math.random() * mix_array.length);
+        document.getElementById(i).src = "Pictures/" + mix_array[ri] + ".jpg";
+        if(mix_array[ri] == 16){
+            if(i == 1){blank_x = 1; blank_y = 1; blank_z = 1};
+            if(i == 2){blank_x = 1; blank_y = 2; blank_z = 2};
+            if(i == 3){blank_x = 1; blank_y = 3; blank_z = 3};
+            if(i == 4){blank_x = 1; blank_y = 4; blank_z = 4};
+            if(i == 5){blank_x = 2; blank_y = 1; blank_z = 5};
+            if(i == 6){blank_x = 2; blank_y = 2; blank_z = 6};
+            if(i == 7){blank_x = 2; blank_y = 3; blank_z = 7};
+            if(i == 8){blank_x = 2; blank_y = 4; blank_z = 8};
+            if(i == 9){blank_x = 3; blank_y = 1; blank_z = 9};
+            if(i == 10){blank_x = 3; blank_y = 2; blank_z = 10};
+            if(i == 11){blank_x = 3; blank_y = 3; blank_z = 11};
+            if(i == 12){blank_x = 3; blank_y = 4; blank_z = 12};
+            if(i == 13){blank_x = 4; blank_y = 1; blank_z = 13};
+            if(i == 14){blank_x = 4; blank_y = 2; blank_z = 14};
+            if(i == 15){blank_x = 4; blank_y = 3; blank_z = 15};
+            if(i == 16){blank_x = 4; blank_y = 4; blank_z = 16};
+            document.getElementById(i).src = "Pictures/blank.jpg"
+        } 
+        
+        mix_array.splice(ri, 1);
+    }
+        count = 0;
+        sec = 0;
+        winnerWinnerChickenDinner();
+		document.getElementById('AlertBox').style.display = "none";
+		document.getElementById('WindowShade').style.display = "none";
+	}
+}
+var CustomAlert = new CustomAlert();
+ 
+    
+    function begin(){
+        timeCount = setInterval(timeKeeper, 1000);
+    }
+    
+    var sec = 0;
+    function timeKeeper(){
+        document.getElementById("tKeeper").innerHTML = ++sec;
+    }
+    
+    
+
+</script>    
+
+</body>
+</html>
